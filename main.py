@@ -33,10 +33,10 @@ def main():
         press_key(index)
 
         if index == 'main':
-            lv += 1
-
             if lv == inp:
                 break
+            
+            lv += 1
 
 if __name__ == '__main__':
     main()
