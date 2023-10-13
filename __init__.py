@@ -2,8 +2,6 @@ import os
 
 import tensorflow as tf
 
-# from transformers import TrOCRProcessor, VisionEncoderDecoderModel
-
 dirs = ['battle',
         'battle_end', 
         'battle_load_color',
@@ -27,6 +25,3 @@ keys = {
     'sanity': None,
     'team': 'a'
     }
-
-# processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
-# model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten")
