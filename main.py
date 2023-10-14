@@ -1,12 +1,14 @@
 import pyautogui
 import time
 import os
+import json
 
 import tensorflow as tf
 
 from pynput.keyboard import Controller
 
-from src.resnet import resnet_ark, evalute, Residual
+from src.resnet import resnet_ark
+from src.layers import Residual
 from __init__ import dirs, keys
 
 
@@ -30,6 +32,12 @@ def seting():
         keys['main'] = input('укажите новую клавишу для Начать уровень ')
         keys['team'] = input('укажите новую клавишу для Начать уровень 2 (команда) ') 
         keys['end'] = input('укажите новую клавишу для Закончить уровень ') 
+    
+        inp = input('Изменить настройки? (y/n) ')
+
+        if inp == 'y':
+            with open('./keyboards.json', 'w') as jsons:
+                json.dump(keys, jsons)
 
 
 
@@ -55,7 +63,7 @@ def main():
                 pyautogui.screenshot('./screen.png')
 
                 index = resnet_ark('./screen.png', model)
-                
+
                 press_key(index)
 
                 if index == 'main':

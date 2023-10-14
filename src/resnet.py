@@ -2,9 +2,9 @@ import tensorflow as tf
 
 from tensorflow import keras 
 
-from __init__ import dirs
+from __init__ import dirs, IMG_WIDTH, IMG_HEIGHT
 from .layers import Residual
-from .dataset import IMG_HEIGHT, IMG_WIDTH, resize_image, norm, load, dir
+from .normal import resize_image, norm, load
 
 
 def creator_model(
@@ -37,7 +37,7 @@ def creator_model(
         keras.layers.GlobalAveragePooling2D(),
         keras.layers.Dropout(dropout),
         keras.layers.Flatten(),
-        keras.layers.Dense(len(dir), activation='softmax')
+        keras.layers.Dense(len(dirs), activation='softmax')
     ])
 
     return model

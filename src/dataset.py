@@ -6,11 +6,11 @@ import tensorflow as tf
 
 from sklearn.model_selection import train_test_split
 
+from __init__ import IMG_HEIGHT, IMG_WIDTH
+
 
 BUFFER_SIZE = 100
 BATCH_SIZE = 1
-IMG_WIDTH = 64
-IMG_HEIGHT = 64
 
 image_name = []
 index_arr = []
@@ -26,28 +26,6 @@ def text_to_index(path):
             break
 
     return np.array(index)
-
-def resize_image(img):
-    img = tf.image.resize(
-        img, (IMG_WIDTH, IMG_HEIGHT), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR
-    )
-
-    return img
-
-def load(image_file):
-  image = tf.io.read_file(image_file)
-  image = tf.io.decode_jpeg(image)
-
-  input_image = tf.cast(image, tf.float32)
-
-  return input_image
-
-def norm(img):
-    img = tf.cast(img, tf.float32)
-
-    img = (img / 127.5) - 1
-
-    return img
 
 def preprocess_image_train(image, y):
     image = resize_image(load(image))
