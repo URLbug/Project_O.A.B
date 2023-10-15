@@ -14,7 +14,7 @@ def auto_lv(sanity, model):
     lv = 0
 
     while True:
-        time.sleep(5)
+        time.sleep(1)
         
         try:
             screen = screenshot(keys['name'])
@@ -46,4 +46,7 @@ def auto_lv(sanity, model):
         if index == 'sanity':
             ocr = True
         
-        press_key(index)
+        if keys['press']:
+            press_key(index)
+        else:
+            press_mouse(index)

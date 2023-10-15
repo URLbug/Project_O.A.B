@@ -2,7 +2,7 @@ import time
 
 from src.resnet import resnet_ark
 
-from controllers.keyboards import press_key
+from controllers.keyboards import press_key, press_mouse
 from controllers.setings import screenshot
 
 from __init__ import keys
@@ -12,7 +12,7 @@ def clickers(inp, sanity, model):
     lv = 0
 
     while True:
-        time.sleep(5)
+        time.sleep(1)
         
         try:
             screen = screenshot(keys['name'])
@@ -32,4 +32,7 @@ def clickers(inp, sanity, model):
         if index == 'sanity' and sanity != 'y':
             break
         
-        press_key(index)
+        if keys['press']:
+            press_key(index)
+        else:
+            press_mouse(index)

@@ -1,15 +1,18 @@
 import time
 import os
+import pyautogui
 
 import tensorflow as tf
 
 
-from __init__ import dirs, keys
+from __init__ import keys
 
 from src.layers import Residual
 
 from controllers.keyboards import press_key
-from controllers.setings import seting, screenshot
+from controllers.setings import seting, windows
+
+from src.OCR import OCR_sanity
 
 if keys['auto']:
     from clickers.OCR_clikers import auto_lv 
@@ -48,9 +51,10 @@ def main():
                     inp = 1
             
             clickers(inp, sanity, model)
-
         else:
             exit()
 
 if __name__ == '__main__':
-    main()
+    # main()
+    # OCR_sanity('./screen.png')
+    windows()
