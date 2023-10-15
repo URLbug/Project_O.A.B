@@ -1,19 +1,17 @@
 from PIL import Image
 
-from __init__ import processor, model_ocr
+from __init__ import processor, pipe, device
 
 
 def OCR(img):
     img = Image.open(img).convert("RGB")
 
-    pixel_values = processor(images=img, return_tensors="pt").pixel_values
+    pixel_values = processor(images=img, return_tensors="pt").pixel_values.to(device)
 
-    generated_ids = model_ocr.generate(pixel_values)
+    generated_ids = pipe.generate(pixel_values)
     generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
     return generated_text
-
-# 520 331 41 14
 
 def resize(imgs, x1, y1, x2, y2):
     size = (600, 600)

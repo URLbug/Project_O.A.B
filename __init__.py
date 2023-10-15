@@ -1,6 +1,7 @@
 import os
 import json
 import warnings
+import torch
 
 import tensorflow as tf
 
@@ -28,6 +29,8 @@ dirs = ['battle',
 keys = json.load(open('./keyboards.json', 'rb'))
 
 if keys['auto']:
-        processor = TrOCRProcessor.from_pretrained('microsoft/trocr-large-printed')
-        model_ocr = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-large-printed')
+        processor = TrOCRProcessor.from_pretrained('microsoft/trocr-small-printed')
+        pipe = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-small-printed')
         
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        pipe.to(device)
