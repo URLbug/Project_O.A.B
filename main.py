@@ -9,10 +9,7 @@ from __init__ import keys
 
 from src.layers import Residual
 
-from controllers.keyboards import press_key
-from controllers.setings import seting, windows
-
-from src.OCR import OCR_sanity
+from controllers.setings import seting
 
 if keys['auto']:
     from clickers.OCR_clikers import auto_lv 
@@ -24,6 +21,8 @@ def main():
     model = tf.keras.models.load_model('./model/beta_resnet.h5', custom_objects={'Residual': Residual})
 
     while True:
+        os.system('cls')
+
         print('Настройка - 1\nСтарт - 2\nВыйти - 3')
         
         inp = input('-> ')
@@ -31,8 +30,12 @@ def main():
         if inp not in ['1', '2', '3']:
             inp = input('-> ')
         elif inp == '1':
+            os.system('cls')
+
             seting()
         elif inp == '2':
+            os.system('cls')
+
             if keys['auto']:
                 print('Напишите англискую "a" если хотите пройти уровень автоматически')
 
@@ -55,6 +58,4 @@ def main():
             exit()
 
 if __name__ == '__main__':
-    # main()
-    # OCR_sanity('./screen.png')
-    windows()
+    main()
