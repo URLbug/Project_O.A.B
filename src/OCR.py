@@ -32,7 +32,7 @@ def OCR_sanity(imgs):
 
     text = OCR('./sanity.png')
 
-    number = int(text)
+    number = int(text.split('/')[0])
 
     resize(imgs, x1=520, y1=15, x2=541, y2=3)
 

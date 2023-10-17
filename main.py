@@ -15,7 +15,6 @@ if keys['auto']:
     from clickers.OCR_clikers import auto_lv 
 
 from clickers.clickers import clickers
-from src.OCR import OCR_sanity
 
 
 def main():

@@ -1,4 +1,5 @@
 import time
+import pyautogui
 
 from src.OCR import OCR_sanity
 from src.resnet import resnet_ark
@@ -14,7 +15,7 @@ def ocr_inp():
         screen = screenshot(keys['name'])
     except:
         print('У вас неверное имя окна')
-        break
+        return 1
 
     screen.save('./screen.png')
 
@@ -28,7 +29,7 @@ def ocr_inp():
 
 
 def auto_lv(sanity, model):
-    ocr = True
+    ocr = False
     lv = 0
 
     inp = ocr_inp()
@@ -36,11 +37,7 @@ def auto_lv(sanity, model):
     while True:
         time.sleep(1)
         
-        try:
-            screen = screenshot(keys['name'])
-        except:
-            print('У вас неверное имя окна')
-            break
+        screen = pyautogui.screenshot()
 
         screen.save('./screen.png')
 

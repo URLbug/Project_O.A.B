@@ -12,19 +12,22 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 warnings.filterwarnings("ignore")
 
+# tf.config.set_soft_device_placement(True)
+# tf.debugging.set_log_device_placement(True)
+
 IMG_WIDTH = 64
 IMG_HEIGHT = 64
 
-dirs = ['battle',
-        'battle_end', 
-        'battle_load_color',
-        'battle_load_gray',
-        'black', 
-        'end',
+dirs = ['end',
+        'black',
+        'sanity',
+        'team',
+        'battle',
         'end_icon',
-        'main', 
-        'sanity', 
-        'team']
+        'battle_load_gray',
+        'battle_end',
+        'main',
+        'battle_load_color']
 
 keys = json.load(open('./keyboards.json', 'rb'))
 

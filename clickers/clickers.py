@@ -1,9 +1,11 @@
 import time
+import pyautogui
 
 from src.resnet import resnet_ark
 
 from controllers.keyboards import press_key, press_mouse
-from controllers.setings import screenshot
+# from controllers.setings import screenshot
+
 
 from __init__ import keys
 
@@ -14,11 +16,7 @@ def clickers(inp, sanity, model):
     while True:
         time.sleep(1)
         
-        try:
-            screen = screenshot(keys['name'])
-        except:
-            print('У вас неверное имя окна')
-            break
+        screen = pyautogui.screenshot()
 
         screen.save('./screen.png')
 
@@ -26,7 +24,7 @@ def clickers(inp, sanity, model):
 
         if index == 'main':
             if lv == inp:
-                break    
+                break 
             lv += 1
         
         if index == 'sanity' and sanity != 'y':
