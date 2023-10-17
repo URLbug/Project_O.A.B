@@ -29,8 +29,8 @@ dirs = ['battle',
 keys = json.load(open('./keyboards.json', 'rb'))
 
 if keys['auto']:
-        processor = TrOCRProcessor.from_pretrained('microsoft/trocr-small-printed')
-        pipe = VisionEncoderDecoderModel.from_pretrained('microsoft/trocr-small-printed')
+        processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-stage1")
+        pipe = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-stage1")
         
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         pipe.to(device)

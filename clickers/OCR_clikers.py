@@ -3,15 +3,35 @@ import time
 from src.OCR import OCR_sanity
 from src.resnet import resnet_ark
 
-from controllers.keyboards import press_key
+from controllers.keyboards import press_key, press_mouse
 from controllers.setings import screenshot
 
 from __init__ import keys
 
 
+def ocr_inp():
+    try:
+        screen = screenshot(keys['name'])
+    except:
+        print('У вас неверное имя окна')
+        break
+
+    screen.save('./screen.png')
+
+    san, rep = OCR_sanity('./screen.png')
+
+    inp = san // (rep*-1)
+
+    print(f"Уровень автоматически пройдется {inp}")
+
+    return inp
+
+
 def auto_lv(sanity, model):
     ocr = True
     lv = 0
+
+    inp = ocr_inp()
 
     while True:
         time.sleep(1)
@@ -25,13 +45,9 @@ def auto_lv(sanity, model):
         screen.save('./screen.png')
 
         if ocr:
-            san, rep = OCR_sanity('./screen.png')
-
-            inp = san // rep
+            inp = ocr_inp()
 
             ocr = False
-
-            print(f"Уровень автоматически пройдется {inp}")
 
         index = resnet_ark('./screen.png', model)
 
@@ -43,7 +59,7 @@ def auto_lv(sanity, model):
         if index == 'sanity' and sanity != 'y':
             break
         
-        if index == 'sanity':
+        if index == 'sanity' and sanity == 'y':
             ocr = True
         
         if keys['press']:

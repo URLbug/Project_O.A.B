@@ -28,19 +28,16 @@ def resize(imgs, x1, y1, x2, y2):
     img.save('./sanity.png')
 
 def OCR_sanity(imgs):
-
-    resize(imgs, x1=517, y1=333, x2=560, y2=300)
-
-    text = OCR('./sanity.png')
-
-    print(text)
-
-    number = int(text.split('/')[0])
-
-    resize(imgs, x1=536, y1=15, x2=561, y2=3)
+    resize(imgs, x1=500, y1=300, x2=520, y2=280)
 
     text = OCR('./sanity.png')
 
+    number = int(text)
+
+    resize(imgs, x1=520, y1=15, x2=541, y2=3)
+
+    text = OCR('./sanity.png')
+    
     number_2 = int(text)
 
     return number, number_2
