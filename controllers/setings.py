@@ -6,32 +6,32 @@ from __init__ import keys
 
 
 def seting():
-    print('Настройка клавишь')
-    print(f"Начать уровень - {keys['main']}\nНачать уровень 2 (команда) - {keys['team']}\nЗакончить уровень - {keys['end']}\nТрата sanity - {keys['sanity']}\nНазвание окна по умолчанию - BlueStacks App Player 1\nИспользование Auto режима - {keys['auto']}")
-    print(f"Управление клавиатурой  - {keys['press']}")
+    print('Key setting')
+    print(f"Start level - {keys['main']}\nStart level 2 (team) - {keys['team']}\nEnd level - {keys['end']}\nWasting sanity - {keys['sanity'] }\nThe default window name is {keys['name']}\nUsing Auto mode - {keys['auto']}")
+    print(f"Keyboard control  - {keys['press']}")
     print()
-    print('Предупреждение если вы вкл. auto режим то это может повлиять на вашу производительность')
-    print('Если вы вкл. auto режим то перезагрузите приложение')
+    print('Warning: if you enable auto mode it may affect your performance')
+    print('If you enable auto mode, restart the application')
 
-    inp = input('Редактироваь? (y/n) ')
+    inp = input('Edit? (y/n) ')
 
     if inp not in ['n', 'y']:
-        inp = input('Редактироваь? (y/n) ')
+        inp = input('Edit? (y/n) ')
     
     if inp == 'y':
-        keys['press'] = False if input('Вы хотите отключить управление клавиатурой? (y/n) ') == 'y' else True
+        keys['press'] = False if input('Do you want to disable keyboard control? (y/n) ') == 'y' else True
 
         if keys['press']:
-            keys['main'] = input('укажите новую клавишу для Начать уровень ')
-            keys['team'] = input('укажите новую клавишу для Начать уровень 2 (команда) ') 
-            keys['end'] = input('укажите новую клавишу для Закончить уровень ')
-            keys['sanity'] = input('укажите новую клавишу для Трата sanity ')
+            keys['main'] = input('specify a new key for Start level ')
+            keys['team'] = input('specify a new key for Start Level 2 (command) ') 
+            keys['end'] = input('specify a new key for End Level')
+            keys['sanity'] = input('specify a new key for Spend sanity ')
 
-        keys['name'] = input(f'укажите имя окна. По умолчанию {keys["name"]} ') 
+        keys['name'] = input(f'specify the window name. Default{keys["name"]} ') 
 
-        keys['auto'] = True if input(f'Хотите вкл. auto режим? (y/n) ') == 'y' else False
+        keys['auto'] = True if input(f'Do you want it on? auto mode? (y/n) ') == 'y' else False
     
-        inp = input('Изменить настройки? (y/n) ')
+        inp = input('Change settings? (y/n) ')
 
         if inp == 'y':
             with open('./keyboards.json', 'w') as jsons:
@@ -54,7 +54,7 @@ def screenshot(window_title=None):
             
             return im
         else:
-            print('Не существует окна с таким именем')
+            print('There is no window with that name')
     else:
         im = pyautogui.screenshot()
         return im

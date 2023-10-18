@@ -14,7 +14,7 @@ def ocr_inp():
     try:
         screen = screenshot(keys['name'])
     except:
-        print('У вас неверное имя окна')
+        print('Your window name is incorrect')
         return 1
 
     screen.save('./screen.png')
@@ -23,7 +23,7 @@ def ocr_inp():
 
     inp = san // (rep*-1)
 
-    print(f"Уровень автоматически пройдется {inp}")
+    print(f"The level will be completed automatically {inp}")
 
     return inp
 

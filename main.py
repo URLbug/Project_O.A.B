@@ -23,7 +23,7 @@ def main():
     while True:
         os.system('cls')
 
-        print('Настройка - 1\nСтарт - 2\nВыйти - 3')
+        print('Settings - 1\nStart - 2\nExit - 3')
         
         inp = input('-> ')
 
@@ -37,11 +37,11 @@ def main():
             os.system('cls')
 
             if keys['auto']:
-                print('Напишите англискую "a" если хотите пройти уровень автоматически')
+                print('Write English "a" if you want to pass the level automatically')
 
-            inp = input('Сколько раз вы хотите пройти уровень? Либо автоматически пройти уровень? ')
+            inp = input('How many times do you want to complete the level? Or automatically complete the level? ')
 
-            sanity = input('Тратить sanity? (y/n) ')
+            sanity = input('Spending sanity? (y/n) ')
 
             if inp == "a" and keys['auto']:
                 auto_lv(sanity, model)
@@ -49,7 +49,7 @@ def main():
                 try:
                     inp = int(inp)
                 except:
-                    print('Вы указали не число. Поэтому цикл всего будет 1')
+                    print("You didn't specify a number. Therefore the cycle will be 1")
 
                     inp = 1
             

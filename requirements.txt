@@ -1,7 +1,7 @@
-tensorflow==2.14.0
-pyautogui==0.9.54
-pynput==1.7.6
-tqdm==4.66.1
-scikit-learn==1.1.1
-pywin32==306
-transformers==4.34.0
+pyautogui
+pynput
+tqdm
+pipwin
+scikit-learn
+tensorflow
+transformers
