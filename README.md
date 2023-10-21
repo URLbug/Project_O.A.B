@@ -17,6 +17,7 @@ git clone https://github.com/URLbug/Project_O.A.B.git
 5. Fifth, install <a href="https://www.python.org/">python</a> from the official website.
 6. Sixth, open the folder you made and write the cmd command in the path line.
 <img src="./image/tutorial.png">
+
 7. Seventh, enter the following command and install the necessary libraries.
 ```
 pip install -r requirements.txt
