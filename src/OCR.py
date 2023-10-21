@@ -1,6 +1,9 @@
+import keyboard
+import os
+
 from PIL import Image
 
-from __init__ import processor, pipe, device
+from __init__ import processor, pipe, device, keys
 
 
 def OCR(img):
@@ -27,17 +30,23 @@ def resize(imgs, x1, y1, x2, y2):
 
     img.save('./sanity.png')
 
-def OCR_sanity(imgs):
-    resize(imgs, x1=500, y1=300, x2=520, y2=280)
+def OCR_sanity():
+    keyboard.press('ctrl+shift+s')
+    
+    imgs = f"{keys['dirs']}/{os.listdir(keys['dirs'])[-1]}"
+    
+    resize(imgs, x1=520, y1=325, x2=552, y2=300)
 
     text = OCR('./sanity.png')
 
     number = int(text.split('/')[0])
 
-    resize(imgs, x1=520, y1=15, x2=541, y2=3)
+    resize(imgs, x1=550, y1=16, x2=580, y2=4)
 
     text = OCR('./sanity.png')
     
     number_2 = int(text)
+    
+    os.remove(imgs)
 
     return number, number_2

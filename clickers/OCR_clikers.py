@@ -12,14 +12,12 @@ from __init__ import keys
 
 def ocr_inp():
     try:
-        screen = screenshot(keys['name'])
+        screenshot(keys['name'])
     except:
         print('Your window name is incorrect')
         return 1
 
-    screen.save('./screen.png')
-
-    san, rep = OCR_sanity('./screen.png')
+    san, rep = OCR_sanity()
 
     inp = san // (rep*-1)
 
@@ -48,16 +46,17 @@ def auto_lv(sanity, model):
 
         index = resnet_ark('./screen.png', model)
 
-        if index == 'main':
+        if index == 'end':
             if lv == inp:
                 break    
             lv += 1
         
-        if index == 'sanity' and sanity != 'y':
-            break
-        
-        if index == 'sanity' and sanity == 'y':
-            ocr = True
+        if index == 'sanity':
+            if sanity != 'y':
+                break
+            else:
+                ocr = True
+                lv -= 1
         
         if keys['press']:
             press_key(index)

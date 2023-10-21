@@ -8,7 +8,8 @@ from __init__ import keys
 def seting():
     print('Key setting')
     print(f"Start level - {keys['main']}\nStart level 2 (team) - {keys['team']}\nEnd level - {keys['end']}\nWasting sanity - {keys['sanity'] }\nThe default window name is {keys['name']}\nUsing Auto mode - {keys['auto']}")
-    print(f"Keyboard control  - {keys['press']}")
+    print(f"Keyboard control - {keys['press']}")
+    print(f"Dir - {keys['dirs']}")
     print()
     print('Warning: if you enable auto mode it may affect your performance')
     print('If you enable auto mode, restart the application')
@@ -27,7 +28,9 @@ def seting():
             keys['end'] = input('specify a new key for End Level')
             keys['sanity'] = input('specify a new key for Spend sanity ')
 
-        keys['name'] = input(f'specify the window name. Default{keys["name"]} ') 
+        keys['name'] = input(f'specify the window name. Default {keys["name"]} ') 
+
+        keys['dirs'] = input(f'write where your game screenshots are stored. Default {keys["dirs"]} ')
 
         keys['auto'] = True if input(f'Do you want it on? auto mode? (y/n) ') == 'y' else False
     

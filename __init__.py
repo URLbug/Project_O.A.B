@@ -12,9 +12,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 warnings.filterwarnings("ignore")
 
-# tf.config.set_soft_device_placement(True)
-# tf.debugging.set_log_device_placement(True)
-
 IMG_WIDTH = 64
 IMG_HEIGHT = 64
 

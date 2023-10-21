@@ -1,6 +1,5 @@
-import time
 import os
-import pyautogui
+import keyboard
 
 import tensorflow as tf
 
@@ -8,11 +7,12 @@ import tensorflow as tf
 from __init__ import keys
 
 from src.layers import Residual
+from src.OCR import OCR_sanity
 
-from controllers.setings import seting, screenshot
+from controllers.setings import seting
 
 if keys['auto']:
-    from clickers.OCR_clikers import auto_lv 
+    from clickers.OCR_clikers import auto_lv
 
 from clickers.clickers import clickers
 

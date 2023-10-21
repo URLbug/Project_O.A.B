@@ -2,6 +2,8 @@ pyautogui
 pynput
 tqdm
 pipwin
+pywin32
 scikit-learn
 tensorflow
+torch
 transformers
