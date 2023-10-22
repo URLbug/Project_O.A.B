@@ -3,6 +3,8 @@
 ### <b>Introduction
 <b>A program that combined an autoclicker and autoresource allocation for a mobile game: Arknights, using optical character recognition and image classification models.
 
+<b>Demo <a href="https://drive.google.com/file/d/1IiJqda4cfLEAsizzrBZWcyNIH8bRcfVX/view?usp=sharing">video</a>
+
 ### <b>How to install?
 1. First install git.
 ```
