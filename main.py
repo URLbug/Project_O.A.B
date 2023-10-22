@@ -7,7 +7,6 @@ import tensorflow as tf
 from __init__ import keys
 
 from src.layers import Residual
-from src.OCR import OCR_sanity
 
 from controllers.setings import seting
 
